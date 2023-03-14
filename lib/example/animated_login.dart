@@ -120,29 +120,13 @@ class _LoginState extends State<Login> {
                             hintText: 'Password',
                           ),
                           onChanged: (value){},
+                          obscureText: true,
                         ),
                       ),
 
                     ],
                   ),
                 ),
-                const SizedBox(height: 10,),
-                Container(
-                  height: 60,
-                  width: size.width/5,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: Text('Login',
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold
-                    ),
-                    ),
-                  ),
-                )
 
               ],
             ),
