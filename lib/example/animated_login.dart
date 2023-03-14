@@ -54,79 +54,80 @@ class _LoginState extends State<Login> {
         width: size.width,
         child:  Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 100,),
-             SizedBox(
-                width: 250,
-                height: 250,
-              child: RiveAnimation.asset(
-                fit: BoxFit.fitHeight,
-                stateMachines: const ['Login Machine'],
-                onInit: ((artboard){
-                  controller = StateMachineController.fromArtboard(artboard, 'Login Machine');
-                  if(controller ==null)
-                    return;
-                  artboard.addController(controller!);
-                  isChecking = controller?.findInput('isChecking');
-                  isHandsUp = controller?.findInput('isHandsUp');
-                  numLook = controller?.findInput('numLook');
-                  trigSuccess = controller?.findInput('trigSuccess');
-                  trigFail = controller?.findInput('trigFail');
-                }),
-                'assets/img/login.riv'
-              ),
-              ),
-              Container(
-                padding:const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+               SizedBox(
+                  width: 250,
+                  height: 250,
+                child: RiveAnimation.asset(
+                  fit: BoxFit.fitHeight,
+                  stateMachines: const ['Login Machine'],
+                  onInit: ((artboard){
+                    controller = StateMachineController.fromArtboard(artboard, 'Login Machine');
+                    if(controller ==null)
+                      return;
+                    artboard.addController(controller!);
+                    isChecking = controller?.findInput('isChecking');
+                    isHandsUp = controller?.findInput('isHandsUp');
+                    numLook = controller?.findInput('numLook');
+                    trigSuccess = controller?.findInput('trigSuccess');
+                    trigFail = controller?.findInput('trigFail');
+                  }),
+                  'assets/img/login.riv'
                 ),
-                child: Column(
-                  children: [
-                    Container(
-                      padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: TextField(
-                        focusNode: emailFocusNode,
-                        controller: emailController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Email',
-                        ),
-                        onChanged: (value){
-                          numLook?.change(value.length.toDouble());
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 10,),
-
-                    Container(
-                      padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: TextField(
-                        focusNode: passwordFocusNode,
-                        controller: passwordController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Password',
-                        ),
-                        onChanged: (value){},
-                      ),
-                    )
-                  ],
                 ),
-              )
+                Container(
+                  padding:const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: TextField(
+                          focusNode: emailFocusNode,
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Email',
+                          ),
+                          onChanged: (value){
+                            numLook?.change(value.length.toDouble());
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
 
-            ],
+                      Container(
+                        padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: TextField(
+                          focusNode: passwordFocusNode,
+                          controller: passwordController,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                          ),
+                          onChanged: (value){},
+                        ),
+                      )
+                    ],
+                  ),
+                )
+
+              ],
+            ),
           ),
         ),
       ),
