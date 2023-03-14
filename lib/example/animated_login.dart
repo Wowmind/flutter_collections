@@ -78,7 +78,7 @@ class _LoginState extends State<Login> {
               ),
               ),
               Container(
-                padding: EdgeInsets.all(16),
+                padding:const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
@@ -86,9 +86,39 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     Container(
+                      padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(265, 255, 100, 198),
+                        color: const Color.fromARGB(265, 255, 100, 198),
                         borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: TextField(
+                        focusNode: emailFocusNode,
+                        controller: emailController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                        ),
+                        onChanged: (value){
+                          numLook?.change(value.length.toDouble());
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+
+                    Container(
+                      padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(265, 255, 100, 198),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: TextField(
+                        focusNode: passwordFocusNode,
+                        controller: passwordController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
+                        onChanged: (value){},
                       ),
                     )
                   ],
