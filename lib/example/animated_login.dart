@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: const Color(0xFF8c3368),
+      backgroundColor: Colors.deepPurple,
       body: SizedBox(
         width: size.width,
         child:  Padding(
@@ -57,6 +57,7 @@ class _LoginState extends State<Login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(height: 100,),
              SizedBox(
                 width: 250,
                 height: 250,
@@ -88,7 +89,7 @@ class _LoginState extends State<Login> {
                     Container(
                       padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(265, 255, 100, 198),
+                        color: Colors.deepPurple,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: TextField(
@@ -108,7 +109,7 @@ class _LoginState extends State<Login> {
                     Container(
                       padding:const  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(265, 255, 100, 198),
+                        color: Colors.deepPurple,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: TextField(
