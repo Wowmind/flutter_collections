@@ -25,15 +25,15 @@ class _LoginState extends State<Login> {
 
   @override
   void initState() {
-    emailFocusNode.addListener(() {emailFocus;});
-    passwordFocusNode.addListener(() {passwordFocus;});
+    emailFocusNode.addListener(emailFocus);
+    passwordFocusNode.addListener(passwordFocus);
     super.initState();
   }
 
   @override
   void dispose() {
-    emailFocusNode.removeListener(() {emailFocus;});
-    passwordFocusNode.removeListener(() {passwordFocus;});
+    emailFocusNode.removeListener(emailFocus);
+    passwordFocusNode.removeListener(passwordFocus);
     super.dispose();
   }
 
